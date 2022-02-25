@@ -14,24 +14,51 @@
 
     <h1>Dessiner des formes</h1>
     <h2>Rectangle</h2>
+    <svg>
+      <rect width="400" height="100" style="fill:rgb(0,0,255)"/>
+    </svg>
 
     <h2>Donut</h2>
-
+    <svg>
+      <circle cx="50" cy="50" r="60" stroke="black" stroke-width="1" fill="none" transform="translate(11 11)"/>
+      <circle cx="50" cy="50" r="30" stroke="black" stroke-width="1" fill="none" transform="translate(11 11)"/>
+    </svg>
 
     <h2>Ligne</h2>
-
+    <svg>
+      <line x1="20" y1="50" x2="31.77" y2="-8.53" stroke="red" />
+    </svg>
 
     <h2>Path</h2>
-
+    <svg width="1000" height="150">
+        <path d="M 0 0 H 100 V 30 H 65 V 150 H 35 V 30 H 0 V 0" fill="black"/>
+        <path d="M 0 0 H 100 V 30 H 50 V 60 H 100 V 90 H 50 V 120 H 100 V 150 H 20 V 0" fill="black" transform="translate(100 0)"/>
+        <path d="M 0 0 H 100 V 150 H 20 V 0" fill="black" transform="translate(200 0)"/>
+        <path d="M 0 30 H 70 V 120 H 50 V 30" fill="white" transform="translate(200 0)"/>
+    </svg>
 
     <h1>Animer des formes</h1>
 
     <h2>On click</h2>
+    <svg>
+      <rect id="rectOnClick" width="400" height="100"/>
+    </svg>
 
     <h2>On hover</h2>
+    <svg>
+      <circle class="donut" cx="50" cy="50" r="60" stroke="black" stroke-width="1" fill="none" transform="translate(11 11)"/>
+      <circle cx="50" cy="50" r="30" stroke="black" stroke-width="1" fill="white" transform="translate(11 11)"/>
+    </svg>
 
     <h2>Prenez la première lettre de votre prénom que vous avez créée ci-dessus. Faite bouger une forme de votre choix le long de la lettre</h2>
-
-
+    <svg height="160">
+      <path id="t" d="M 0 0 H 100 V 30 H 65 V 150 H 35 V 30 H 0 V 0" stroke="black" stroke-width="1" fill="white" transform="translate(5 5)"/>
+      <circle cx="0" cy="0" r="5" fill="red" transform="translate(5 5)">
+        <!-- Définit l'animation -->
+        <animateMotion dur="6s" repeatCount="indefinite">
+          <mpath xlink:href="#t"/>
+        </animateMotion>
+      </circle>
+    </svg>
   </body>
 </html>

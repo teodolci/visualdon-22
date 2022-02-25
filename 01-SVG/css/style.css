@@ -1,3 +1,15 @@
 body {
       font-family: 'Open Sans', sans-serif;
 }
+
+.donut {
+      fill: white;
+      stroke: black;
+    }
+.donut:hover {
+      fill: black;
+    }
+
+#rectOnClick {
+      fill: red;      
+    }
