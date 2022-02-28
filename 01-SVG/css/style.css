@@ -2,18 +2,6 @@ body {
       font-family: 'Open Sans', sans-serif;
 }
 
-.extDonut {
-      fill: white;
-      stroke: black;
-    }
-/* .extDonut:hover {
-      fill: black;
-    } */
-
-#rectOnClick {
-      fill: red;      
-    }
-
-.changeRayon {
-      r:70;
+#extDonut:hover {
+      r: 70px;
       }

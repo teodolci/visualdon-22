@@ -41,13 +41,15 @@
 
     <h2>On click</h2>
     <svg>
-      <rect id="rectOnClick" width="400" height="100"/>
+      <rect id="rectOnClick" width="400" height="100" fill="red"/>
     </svg>
 
     <h2>On hover</h2>
-    <svg width="142" heigth="142" id="donut">
-      <circle class="extDonut" cx="50" cy="50" r="60" stroke="black" stroke-width="1" fill="none" transform="translate(21 21)"/>
-      <circle cx="50" cy="50" r="30" stroke="black" stroke-width="1" fill="white" transform="translate(21 21)"/>
+    <svg width="142" heigth="142">
+      <g  transform="translate(21 21)">
+        <circle id="extDonut" cx="50" cy="50" r="60" stroke="black" stroke-width="1" fill="transparent"/>
+        <circle cx="50" cy="50" r="30" stroke="black" stroke-width="1" fill="transparent"/>
+      </g>
     </svg>
 
     <h2>Prenez la première lettre de votre prénom que vous avez créée ci-dessus. Faite bouger une forme de votre choix le long de la lettre</h2>
