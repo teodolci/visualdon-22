@@ -2,14 +2,18 @@ body {
       font-family: 'Open Sans', sans-serif;
 }
 
-.donut {
+.extDonut {
       fill: white;
       stroke: black;
     }
-.donut:hover {
+/* .extDonut:hover {
       fill: black;
-    }
+    } */
 
 #rectOnClick {
       fill: red;      
     }
+
+.changeRayon {
+      r:70;
+      }
