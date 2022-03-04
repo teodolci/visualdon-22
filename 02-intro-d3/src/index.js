@@ -8,7 +8,7 @@ d3.select("body")
     .append("svg")
     .attr("class", "svg-circle")
     .attr("width", 300)
-    .attr("height", 300)
+    .attr("height", 400)
 
 d3.select(".svg-circle")
     .append("circle")
@@ -39,20 +39,34 @@ d3.select("#circle2")
 // Déplacez de 50px vers la droite le premier et le deuxième cercle 
 
 d3.select("#circle1")
-    .attr("cx", 100)
+    .attr("transform", "translate(50, 0)")
 
 d3.select("#circle2")
-    .attr("cx", 200)
+    .attr("transform", "translate(50, 0)")
+
+// Rajoutez du texte en dessous de chaque cercle
+
+d3.selectAll('circle')
+    .each(function(){
+    d3.select(this.parentNode).append("text")
+    .text('Circle')
+    .attr("x",d3.select(this.parentNode).node().getBBox().width-60)
+    .attr("y",d3.select(this.parentNode).node().getBBox().height)
+})
 
 // Alignez verticalement les cercles en cliquant sur le dernier cercle
 
-let cxCircle3 = d3.select("#circle3").attr("cx");
+let cxCircle2 = d3.select("#circle2").attr("cx");
 // const cercle3 = d3.select("#circle3")
 d3.select("#circle3").on("click", () => {
     d3.select("#circle1")
-        .attr("cx", cxCircle3)
+        .attr("cx", cxCircle2)
+        .attr("transform", "translate(0, 0)")
     d3.select("#circle2")
-        .attr("cx", cxCircle3)
+        .attr("transform", "translate(0, 0)")
+    d3.select("#circle3")
+        .attr("cx", cxCircle2)
+        .attr("transform", "translate(0, 0)")
 })
 
 // Vous avez à disposition les données suivantes: ```[20, 5, 25, 8, 15]```
@@ -63,7 +77,7 @@ d3.select("#circle3").on("click", () => {
 
 const data = [20, 5, 25, 8, 15]
 
-const divRectangle = d3.select("body")
+d3.select("body")
     .append("div")
     .attr("class", "div-rect")
 
@@ -74,13 +88,14 @@ const svgRect = d3.select(".div-rect")
     .attr("height", 300)
 
 svgRect.selectAll(".svg-rect")
-  .data(data)
-  .enter()
-  .append("rect")
-  .attr("class", "rects")
-  .attr("x", (d, i) => i * 30)
-  .attr("y", (d, i) => parseInt(svgRect.attr("height")) - d)
-  .attr("width", 20)
-  .attr("height", (d => d))
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("class", "rects")
+    .attr("x", (d, i) => i * 30)
+    .attr("y", (d, i) => parseInt(svgRect.attr("height")) - d)
+    .attr("width", 20)
+    .attr("height", (d => d))
 
 // console.log(svgRect.attr("height"));
+
