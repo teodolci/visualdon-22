@@ -6,27 +6,33 @@ import * as d3 from 'd3';
 
 d3.select("body")
     .append("svg")
-    .attr("class", "svg-circle")
+    .attr("id", "svg-circle")
     .attr("width", 300)
     .attr("height", 400)
 
-d3.select(".svg-circle")
+d3.select("#svg-circle")
+    .append("svg")
     .append("circle")
     .attr("id", "circle1")
+    .attr("class", "circle")
     .attr("cx", 50)
     .attr("cy", 50)
     .attr("r", 40)
 
-d3.select(".svg-circle")
+d3.select("#svg-circle")
+    .append("svg")
     .append("circle")
     .attr("id", "circle2")
+    .attr("class", "circle")
     .attr("cx", 150)
     .attr("cy", 150)
     .attr("r", 40)
 
-d3.select(".svg-circle")
+d3.select("#svg-circle")
+    .append("svg")
     .append("circle")
     .attr("id", "circle3")
+    .attr("class", "circle")
     .attr("cx", 250)
     .attr("cy", 250)
     .attr("r", 40)
@@ -47,19 +53,20 @@ d3.select("#circle2")
 // Rajoutez du texte en dessous de chaque cercle
 
 d3.selectAll('circle')
-    .each(function(){
-    d3.select(this.parentNode).append("text")
-    .text('Circle')
-    .attr("x",d3.select(this.parentNode).node().getBBox().width-60)
-    .attr("y",d3.select(this.parentNode).node().getBBox().height)
-})
+    .each(function () {
+        d3.select(this.parentNode).append("text")
+            .text('Circle')
+            .attr("class", "text-circle")
+            .attr("x", d3.select(this.parentNode).node().getBBox().width - 60)
+            .attr("y", d3.select(this.parentNode).node().getBBox().height)
+    })
 
 // Alignez verticalement les cercles en cliquant sur le dernier cercle
 
 let cxCircle2 = d3.select("#circle2").attr("cx");
 // const cercle3 = d3.select("#circle3")
 d3.select("#circle3").on("click", () => {
-    d3.select("#circle1")
+    d3.select(".circle")
         .attr("cx", cxCircle2)
         .attr("transform", "translate(0, 0)")
     d3.select("#circle2")
@@ -67,6 +74,11 @@ d3.select("#circle3").on("click", () => {
     d3.select("#circle3")
         .attr("cx", cxCircle2)
         .attr("transform", "translate(0, 0)")
+    d3.selectAll('text')
+        .each(function () {
+            d3.select(this)
+            .attr("x", cxCircle2 - 20) // 20 = r cercle / 2
+        })
 })
 
 // Vous avez à disposition les données suivantes: ```[20, 5, 25, 8, 15]```
@@ -84,8 +96,8 @@ d3.select("body")
 const svgRect = d3.select(".div-rect")
     .append("svg")
     .attr("class", "svg-rect")
-    .attr("width", 300)
-    .attr("height", 300)
+    .attr("width", 200)
+    .attr("height", 100)
 
 svgRect.selectAll(".svg-rect")
     .data(data)
