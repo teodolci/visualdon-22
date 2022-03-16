@@ -24,7 +24,7 @@ Ce document sera mis à jour au fur et à mesure du semestre avec les informatio
 * Vendredi 11 mars 23h59: [Thématique](https://github.com/romanoe/visualdon-22/tree/main/projet) (10%)
 * Vendredi 18 mars 23h59: Wireframe (10%)
 * Vendredi 6 mai 23h59: Site web (60%)
-* Mercredi 11 mai, vendredi 23 mai: Présentation (20%)
+* Mercredi 11 mai, vendredi 13 mai: Présentation (20%)
 
 ### Format
 
@@ -40,3 +40,4 @@ Ce document sera mis à jour au fur et à mesure du semestre avec les informatio
 ### D3
 * https://d3js.org/
 * https://www.d3-graph-gallery.com/
+* https://observablehq.com/collection/@d3/learn-d3
