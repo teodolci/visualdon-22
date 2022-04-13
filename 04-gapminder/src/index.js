@@ -254,7 +254,6 @@ annees.forEach(annee => {
     const lifeAnnee = life.filter(d => d.annee == annee).map(d => d.data)[0];
     dataCombined.push({ "annee": annee, "data": mergeByCountry(popAnnee, incomeAnnee, lifeAnnee) })
 });
-// console.log(dataCombined)
 
 function converterSI(array, variable, variableName) {
     let convertedVariable = array.map(d => {
@@ -286,6 +285,22 @@ function converterSI(array, variable, variableName) {
 };
 
 // DÉVELOPPEMENT INDIVIDUEL :
+
+dataCombined.forEach(annee => {
+    annee.data.forEach(pays => {
+        if (isUnknow(pays.pop) || isUnknow(pays.life) || isUnknow(pays.income)) {
+            pays.pop = undefined;
+            pays.life = undefined;
+            pays.income = undefined;
+        }
+    })
+});
+
+function isUnknow(elm) {
+    if (isNaN(elm) || elm == null || elm == undefined) {
+        return true;
+    }
+}
 
 d3.select("body")
     .append("div")
@@ -349,7 +364,7 @@ let nIntervId;
 function animate() {
     // regarder si l'intervalle a été déjà démarré
     if (!nIntervId) {
-        nIntervId = setInterval(play, 1000);
+        nIntervId = setInterval(play, 100);
     }
     console.log(nIntervId);
 }
@@ -381,8 +396,7 @@ function updateChart(data_iteration) {
         .data(data_iteration.data)
         .join(enter => enter.append('circle')
             .attr("stroke", "black")
-            .style("opacity", "0.7")
-            .style("fill", `#${Math.floor(Math.random() * 16777215).toString(16)}`)
+            .style("fill", `#${Math.floor(Math.random() * 16777215).toString(16)}70`)
             .attr('cx', function (d) { return x(d.income); })
             .attr('cy', function (d) { return y(d.life); }).transition(d3.transition()
                 .duration(500)
